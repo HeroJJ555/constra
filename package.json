@@ -2,15 +2,23 @@
   "name": "@herojj555/constra",
   "version": "0.1.0",
   "description": "TypeScript constraint solver for scheduling and allocation problems.",
-  "license": "MIT",
+  "license": "Mozilla Public License Version 2.0",
   "type": "module",
   "private": false,
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "main": "./dist/core/src/index.js",
+  "types": "./dist/core/src/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/index.js",
-      "types": "./dist/index.d.ts"
+      "import": "./dist/core/src/index.js",
+      "types": "./dist/core/src/index.d.ts"
+    },
+    "./stdlib": {
+      "import": "./dist/stdlib/src/index.js",
+      "types": "./dist/stdlib/src/index.d.ts"
+    },
+    "./solver-backtracking": {
+      "import": "./dist/solver-backtracking/src/index.js",
+      "types": "./dist/solver-backtracking/src/index.d.ts"
     }
   },
   "files": [
