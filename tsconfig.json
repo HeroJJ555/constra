@@ -2,15 +2,15 @@
   "compilerOptions": {
     "strict": true,
     "target": "ES2020",
-    "module": "CommonJS",
-    "moduleResolution": "node",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "baseUrl": ".",
+    "outDir": "./dist",
     "paths": {
-      "@constra/core": ["packages/core/src/index.ts"],
-      "@constra/stdlib": ["packages/stdlib/src/index.ts"],
-      "@constra/solver-backtracking": ["packages/solver-backtracking/src/index.ts"]
+      "@constra/core": ["./packages/core/src/index.ts"],
+      "@constra/stdlib": ["./packages/stdlib/src/index.ts"],
+      "@constra/solver-backtracking": ["./packages/solver-backtracking/src/index.ts"]
     }
   },
   "include": [

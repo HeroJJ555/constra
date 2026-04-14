@@ -17,8 +17,8 @@ TypeScript constraint solver for scheduling and allocation problems.
 ## Example
 
 ```ts
-import { createModel, domain, solve } from "@janjakubowski/constra";
-import { noOverlap } from "@janjakubowski/constra/stdlib";
+import { createModel, domain, solve } from "@herojj555/constra";
+import { noOverlap } from "@herojj555/constra/stdlib";
 
 const model = createModel();
 
@@ -40,4 +40,4 @@ Early development (v0.1)
 
 ## License
 
-MIT
+Mozilla Public License Version 2.0

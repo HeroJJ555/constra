@@ -1,8 +1,25 @@
 {
-  "name": "constra",
+  "name": "@herojj555/constra",
   "version": "0.1.0",
-  "private": true,
+  "description": "TypeScript constraint solver for scheduling and allocation problems.",
+  "license": "MIT",
+  "type": "module",
+  "private": false,
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
+    "build": "tsc",
     "test": "vitest run",
     "test:watch": "vitest",
     "example": "tsx examples/basic.ts",
@@ -12,6 +29,6 @@
     "@types/node": "^20.0.0",
     "tsx": "^4.7.0",
     "typescript": "^5.4.0",
-    "vitest": "^1.6.0"
+    "vitest": "^4.1.4"
   }
 }
