@@ -34,10 +34,6 @@ const result = solve(model);
 
 * [@HeroJJ555](https://www.github.com/HeroJJ555)
 
-## Status
-
-Early development (v0.1)
-
 ## License
 
 Mozilla Public License Version 2.0
