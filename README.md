@@ -18,8 +18,8 @@ TypeScript constraint solver for scheduling and allocation problems.
 ## Example
 
 ```ts
-import { createModel, domain, solve } from "@devjax/constra";
-import { noOverlap } from "@devjax/constra/stdlib";
+import { createModel, domain, solve } from "@janjakubowski/constra";
+import { noOverlap } from "@janjakubowski/constra/stdlib";
 
 const model = createModel();
 
