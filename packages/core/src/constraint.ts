@@ -1,6 +1,8 @@
 export interface EvaluationResult {
   readonly satisfied: boolean;
   readonly penalty?: number;
+  readonly variables?: string[];
+  readonly reason?: string;
 }
 
 export interface Constraint {

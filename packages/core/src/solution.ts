@@ -1,6 +1,8 @@
 export interface Violation {
   readonly constraintId: string;
   readonly penalty: number;
+  readonly variables?: string[];
+  readonly reason?: string;
 }
 
 export type Solution = {

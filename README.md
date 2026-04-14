@@ -12,7 +12,7 @@ TypeScript constraint solver for scheduling and allocation problems.
 
 ## Project Status
 ![Status](https://img.shields.io/badge/STATUS-IN_DEVELOPMENT-orange?style=for-the-badge)
-![Current Version](https://img.shields.io/badge/CURRENT_VERSION-V.0.1-orange?style=for-the-badge)
+![Current Version](https://img.shields.io/npm/v/@herojj555/constra?style=for-the-badge)
 
 ## Example
 

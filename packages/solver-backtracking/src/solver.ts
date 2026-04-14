@@ -1,4 +1,4 @@
-import type { Model, Solution, Violation } from '@constra/core';
+import type { Model, Solution, Variable, Violation } from '@constra/core';
 
 export function solve(model: Model): Solution {
   const { variables, constraints } = model;
@@ -6,17 +6,22 @@ export function solve(model: Model): Solution {
   const softConstraints = constraints.filter((c) => c.kind === 'soft');
 
   function backtrack(
-    index: number,
+    unassigned: Variable[],
     assignments: Record<string, unknown>,
   ): Solution | null {
-    if (index === variables.length) {
+    if (unassigned.length === 0) {
       const violations: Violation[] = [];
       let score = 0;
       for (const constraint of softConstraints) {
         const result = constraint.evaluate(assignments);
         if (result.penalty !== undefined && result.penalty > 0) {
           score += result.penalty;
-          violations.push({ constraintId: constraint.id, penalty: result.penalty });
+          violations.push({
+            constraintId: constraint.id,
+            penalty: result.penalty,
+            variables: result.variables,
+            reason: result.reason,
+          });
         }
       }
       return {
@@ -26,31 +31,24 @@ export function solve(model: Model): Solution {
         violations,
       };
     }
-
-    const variable = variables[index];
+    const variable = unassigned.reduce((best, v) =>
+      v.domain.values.length < best.domain.values.length ? v : best,
+    );
+    const remaining = unassigned.filter((v) => v !== variable);
 
     for (const value of variable.domain.values) {
       assignments[variable.id] = value;
-
       let valid = true;
       for (const constraint of hardConstraints) {
-        // Only evaluate when the newly assigned variable is in scope.
-        // The evaluate function handles partial assignments gracefully,
-        // returning satisfied=true when not all scope vars are assigned yet.
-        if (constraint.scope().includes(variable.id)) {
-          const result = constraint.evaluate(assignments);
-          if (!result.satisfied) {
-            valid = false;
-            break;
-          }
+        if (!constraint.evaluate(assignments).satisfied) {
+          valid = false;
+          break;
         }
       }
 
       if (valid) {
-        const result = backtrack(index + 1, assignments);
-        if (result !== null) {
-          return result;
-        }
+        const result = backtrack(remaining, assignments);
+        if (result !== null) return result;
       }
 
       delete assignments[variable.id];
@@ -59,7 +57,7 @@ export function solve(model: Model): Solution {
     return null;
   }
 
-  const result = backtrack(0, {});
+  const result = backtrack([...variables], {});
   if (result === null) {
     return { status: 'infeasible', assignments: {}, score: 0, violations: [] };
   }

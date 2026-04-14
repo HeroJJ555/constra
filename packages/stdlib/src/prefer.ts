@@ -20,7 +20,12 @@ export function prefer<T>(
       if (predicate(val)) {
         return { satisfied: true };
       }
-      return { satisfied: true, penalty: weight };
+      return {
+        satisfied: true,
+        penalty: weight,
+        variables: [variable.id],
+        reason: `${variable.id} does not satisfy preference (assigned: ${String(val)})`,
+      };
     },
   };
 }
