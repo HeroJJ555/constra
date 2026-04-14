@@ -6,14 +6,13 @@
  | |___| (_) | | | \__ \ |_| | | (_| |
   \_____\___/|_| |_|___/\__|_|  \__,_|
 ```
+![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
 
 TypeScript constraint solver for scheduling and allocation problems.
 
-<p align="left">
-  <img src="https://img.shields.io/badge/status-under--development-orange" />
-  <img src="https://img.shields.io/badge/version-0.1.0--alpha-blue" />
-  <img src="https://img.shields.io/badge/license-MIT-green" />
-</p>
+## Project Status
+![Status](https://img.shields.io/badge/STATUS-IN_DEVELOPMENT-orange?style=for-the-badge)
+![Current Version](https://img.shields.io/badge/CURRENT_VERSION-V.0.1-orange?style=for-the-badge)
 
 ## Example
 
