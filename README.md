@@ -53,6 +53,39 @@ console.log(result);
 * solve using backtracking + MRV heuristic
 * return **explainable results** (violations, penalties, reasoning)
 
+## Solver controls
+
+Constra supports basic solver controls:
+
+```ts
+const result = solve(model, {
+  timeoutMs: 1000,
+  maxSteps: 50000,
+  debug: true,
+});
+```
+
+## Diagnostics
+
+Solver results can include:
+
+* `stats`
+* `diagnostics`
+* `debug`
+
+This makes it easier to inspect search behavior, understand infeasible models, and tune scheduling constraints.
+
+## Scheduling constraints
+
+Built-in constraints now include:
+
+* `atMostOne`
+* `exactlyOne`
+* `notIn`
+* `sameValue`
+* `ifThen`
+
+
 ---
 
 ## Project Status

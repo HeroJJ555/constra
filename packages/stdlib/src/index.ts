@@ -4,3 +4,6 @@ export { allDifferent } from './allDifferent';
 export { prefer } from './prefer';
 export { atMostOne } from './atMostOne';
 export { exactlyOne } from './exactlyOne';
+export { notIn } from './notIn';
+export { sameValue } from './sameValue';
+export { ifThen } from './ifThen';
